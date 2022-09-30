@@ -10,7 +10,7 @@ SceneMain::~SceneMain()
 {
 
 }
-
+// aaaa
 // ‰Šú‰»
 void SceneMain::init()
 {
