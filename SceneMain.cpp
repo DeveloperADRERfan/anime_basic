@@ -6,8 +6,6 @@ namespace
 {
 	// グラフィックファイル名
 	const char* const kPlayerGraphFilename = "GameGraphic/obake.png";
-
-	const char* const kEnemyGraphFilename = "GameGraphic/enemy.png";
 }
 
 SceneMain::SceneMain()
@@ -39,6 +37,7 @@ void SceneMain::init()
 	LoadGraph("GameGraphic/enemy.png");
 
 	m_enemy.init();
+	m_bullet.init();
 	m_enemy.get();
 }
 
@@ -50,8 +49,10 @@ void SceneMain::end()
 		DeleteGraph(handle);
 	}
 
+	m_player.end();
 	m_enemy.end();
-
+	m_bullet.end();
+	
 }
 
 // 毎フレームの処理
@@ -59,7 +60,8 @@ void SceneMain::update()
 {
 	m_player.update();
 	m_enemy.update();
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "%f", m_enemy.getPos().y , true);
+	m_bullet.update();
+	//DrawFormatString(0, 0, GetColor(255, 255, 255), "%f", m_enemy.getPos().y , true);
 }
 
 // 毎フレームの描画
@@ -67,4 +69,10 @@ void SceneMain::draw()
 {
 	m_player.draw();
 	m_enemy.draw();
+	m_bullet.draw();
+}
+
+bool SceneMain::createShotNormal(Vec2 pos)
+{
+
 }

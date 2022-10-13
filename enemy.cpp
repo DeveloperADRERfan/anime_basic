@@ -6,7 +6,6 @@
 namespace
 {
 	int img;
-	int health;
 
 	constexpr float kSpeed = 10.0f;
 }
@@ -29,13 +28,14 @@ void Enemy::init()
 	m_vec.y = kSpeed;
 
 	m_handle = LoadGraph("GameGraphic/enemy.png");
-	
+
+	GraphHeight = (m_pos.x + m_GraphSize.x) / 2;
+	GraphWidth  = (m_pos.y + m_GraphSize.y) / 2;
 }
 
 void Enemy::end() {
 
 	DeleteGraph(m_handle);
-
 }
 
 // Žæ“¾

@@ -38,6 +38,11 @@ void Player::init()
 	m_dirNo = 0;
 }
 
+void Player::end()
+{
+	
+}
+
 void Player::update()
 { 
 	// パッド(もしくはキーボード)からの入力を取得する
