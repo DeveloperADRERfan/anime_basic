@@ -5,7 +5,9 @@
 namespace
 {
 	// グラフィックファイル名
-	const char* const kPlayerGraphFilename = "data/char.png";
+	const char* const kPlayerGraphFilename = "GameGraphic/obake.png";
+
+	const char* const kEnemyGraphFilename = "GameGraphic/enemy.png";
 }
 
 SceneMain::SceneMain()
@@ -15,6 +17,7 @@ SceneMain::SceneMain()
 		handle = -1;
 	}
 }
+
 SceneMain::~SceneMain()
 {
 
@@ -23,7 +26,7 @@ SceneMain::~SceneMain()
 // 初期化
 void SceneMain::init()
 {
-	LoadDivGraph("data/char.png", Player::kGraphicDivNum,
+	LoadDivGraph(kPlayerGraphFilename, Player::kGraphicDivNum,
 		Player:: kGraphicDivX, Player::kGraphicDivY,
 		Player::kGraphicSizeX, Player::kGraphicSizeY, m_hPlayerGraphic);
 
@@ -32,6 +35,11 @@ void SceneMain::init()
 		m_player.setHandle(i, m_hPlayerGraphic[i]);
 	}
 	m_player.init();
+
+	LoadGraph("GameGraphic/enemy.png");
+
+	m_enemy.init();
+	m_enemy.get();
 }
 
 // 終了処理
@@ -41,17 +49,22 @@ void SceneMain::end()
 	{
 		DeleteGraph(handle);
 	}
-	
+
+	m_enemy.end();
+
 }
 
 // 毎フレームの処理
 void SceneMain::update()
 {
 	m_player.update();
+	m_enemy.update();
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "%f", m_enemy.getPos().y , true);
 }
 
 // 毎フレームの描画
 void SceneMain::draw()
 {
 	m_player.draw();
+	m_enemy.draw();
 }

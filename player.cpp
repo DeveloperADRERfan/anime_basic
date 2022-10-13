@@ -7,6 +7,9 @@ namespace
 {
 	// キャラクターアニメーション１コマ当たりのフレーム数
 	constexpr int kAnimeChangeFrame = 8;
+
+	// キャラクターの移動
+	constexpr float kSpeed = 10.0f;
 }
 
 Player::Player()
@@ -44,21 +47,49 @@ void Player::update()
 	{
 		m_dirNo = 3;
 		isKey = true;
+
+		m_pos.y -= kSpeed;
+
+		if (m_pos.y < 0)
+		{
+			m_pos.y = 0;
+		}
 	}
 	if (padState & PAD_INPUT_DOWN)
 	{
 		m_dirNo = 0;
 		isKey = true;
+
+		m_pos.y += kSpeed;
+
+		if (m_pos.y + kGraphicSizeY > Game::kScreenHeight)
+		{
+			m_pos.y = Game::kScreenHeight - kGraphicSizeY;
+		}
 	}
 	if (padState & PAD_INPUT_LEFT)
 	{
 		m_dirNo = 1;
 		isKey = true;
+
+		m_pos.x -= kSpeed;
+
+		if (m_pos.x < 0)
+		{
+			m_pos.x = 0;
+		}
 	}
 	if (padState & PAD_INPUT_RIGHT)
 	{
 		m_dirNo = 2;
 		isKey = true;
+
+		m_pos.x += kSpeed;
+
+		if (m_pos.x + kGraphicSizeX > Game::kScreenWidth)
+		{
+			m_pos.x = Game::kScreenWidth - kGraphicSizeX;
+		}
 	}
 
 	// キャラクターのアニメーション

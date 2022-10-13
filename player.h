@@ -12,8 +12,8 @@ public:
 	static constexpr int kGraphicDivY = 4;
 	static constexpr int kGraphicDivNum = kGraphicDivX * kGraphicDivY;
 	// グラフィックデータサイズ
-	static constexpr int kGraphicSizeX = 32;
-	static constexpr int kGraphicSizeY = 32;
+	static constexpr int kGraphicSizeX = 124;
+	static constexpr int kGraphicSizeY = 130;
 
 public:
 	Player();
