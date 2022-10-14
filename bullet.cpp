@@ -22,10 +22,13 @@ Bullet::~Bullet()
 // 初期化
 void Bullet::init()
 {
-	m_pos.x = 0;
+	
 	m_pos.y = 0;
+	m_pos.x = 0;
 	m_vec.x = kSpeed;
 	m_vec.y = 0.0f;
+
+	m_isExist = false;
 
 	m_handle = LoadGraph("GameGraphic/bullet.png");
 }
@@ -37,31 +40,37 @@ void Bullet::end()
 }
 
 // サイズ取得
-void Bullet::get()
+void Bullet::getGraphSize()
 {
-	GetGraphSizeF(m_handle, &m_GraphSize.x, &m_GraphSize.y);
+	GetGraphSizeF(m_handle, &m_size.x, &m_size.y);
+}
+
+// 発射開始
+void Bullet::start(Vec2 pos) 
+{
+	m_isExist = true;
+
+	m_pos = pos;
 }
 
 // 処理
 void Bullet::update()
 {
-	// パッド(もしくはキーボード)からの入力を取得する
-	int padstate = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 
 	// ショットを撃つ処理
-	if (CheckHitKey(KEY_INPUT_SPACE))
+	m_pos.x += m_vec.x;
+
+	if (getRight() > Game::kScreenWidth)
 	{
-		m_pos.x += m_vec.x;
-	}
-	
-	if (m_pos.x + m_GraphSize.x >= Game::kScreenWidth)
-	{
-		
+		m_isExist = false;
 	}
 }
 
 // 描画
 void Bullet::draw()
 {
+	if (!m_isExist) return;
 	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
 }
+
+// 弾の生成

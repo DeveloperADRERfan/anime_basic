@@ -2,7 +2,9 @@
 
 #include "Vec2.h"
 
-class Enemy
+#include "bullet.h"
+
+class Enemy 
 {
 	
 public:
@@ -20,17 +22,13 @@ public:
 	// 描画
 	void draw();
 
-
+	Vec2 getPos() { return m_pos; }
 
 private:
 	// グラフィックのサイズ取得
 	Vec2 m_GraphSize;
 	// 敵のハンドル
 	int m_handle;
-
-	// 敵の縦・横の中心
-	int GraphHeight;
-	int GraphWidth;
 
 	// 表示位置
 	Vec2 m_pos;

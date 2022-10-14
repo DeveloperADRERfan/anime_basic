@@ -5,8 +5,6 @@
 
 namespace
 {
-	int img;
-
 	constexpr float kSpeed = 10.0f;
 }
 
@@ -28,9 +26,6 @@ void Enemy::init()
 	m_vec.y = kSpeed;
 
 	m_handle = LoadGraph("GameGraphic/enemy.png");
-
-	GraphHeight = (m_pos.x + m_GraphSize.x) / 2;
-	GraphWidth  = (m_pos.y + m_GraphSize.y) / 2;
 }
 
 void Enemy::end() {
@@ -51,13 +46,13 @@ void Enemy::update()
 	if (m_pos.y + m_GraphSize.y > Game::kScreenHeight)
 	{
 		m_vec.y *= -1;
-		//m_pos.y = Game::kScreenHeight;
 	}
 	if (m_pos.y <= 0)
 	{
 		m_vec.y *= -1;
 		m_pos.y = 0;
 	}
+
 }
 
 void Enemy::draw()

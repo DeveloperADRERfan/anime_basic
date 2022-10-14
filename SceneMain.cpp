@@ -1,11 +1,13 @@
 #include "DxLib.h"
 #include <cassert>
 #include "SceneMain.h"
+#include "game.h"
 
 namespace
 {
 	// グラフィックファイル名
 	const char* const kPlayerGraphFilename = "GameGraphic/obake.png";
+	constexpr float kInterval = 
 }
 
 SceneMain::SceneMain()
@@ -37,7 +39,10 @@ void SceneMain::init()
 	LoadGraph("GameGraphic/enemy.png");
 
 	m_enemy.init();
-	m_bullet.init();
+	for (auto& Bullet : m_bullet)
+	{
+		Bullet.init();
+	}
 	m_enemy.get();
 }
 
@@ -51,16 +56,30 @@ void SceneMain::end()
 
 	m_player.end();
 	m_enemy.end();
-	m_bullet.end();
+	for (auto& Bullet : m_bullet)
+	{
+		Bullet.end();
+	}
+	
+}
+
+// 発射開始
+void SceneMain::start()
+{
 	
 }
 
 // 毎フレームの処理
 void SceneMain::update()
 {
+	createEnemyShot(m_enemy.getPos());
+
 	m_player.update();
 	m_enemy.update();
-	m_bullet.update();
+	for (auto& Bullet : m_bullet)
+	{
+		Bullet.update();
+	}
 	//DrawFormatString(0, 0, GetColor(255, 255, 255), "%f", m_enemy.getPos().y , true);
 }
 
@@ -69,10 +88,19 @@ void SceneMain::draw()
 {
 	m_player.draw();
 	m_enemy.draw();
-	m_bullet.draw();
+	for (auto& Bullet : m_bullet)
+	{
+		Bullet.draw();
+	}
 }
 
-bool SceneMain::createShotNormal(Vec2 pos)
+// 弾の生成
+void SceneMain::createEnemyShot(Vec2 pos)
 {
-
+	for (auto& Bullet : m_bullet)
+	{
+		if (Bullet.isExist()) continue;
+		Bullet.start(pos);
+		return;
+	}
 }

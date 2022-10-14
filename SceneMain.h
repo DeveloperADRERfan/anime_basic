@@ -14,12 +14,17 @@ public:
 	void init();
 	// 終了処理
 	void end();
-	// 毎フレームの描画
-	void draw();
+	// 発射開始
+	void start();
 	// 毎フレームの処理
 	void update();
+	// 毎フレームの描画
+	void draw();
+	// 弾の生成
+	void createEnemyShot(Vec2 pos);
+private:
+	static constexpr int kMobMax = 10;
 
-	
 private:
 
 	// プレイヤーのグラフィックハンドル
@@ -31,8 +36,5 @@ private:
 	// 敵
 	Enemy m_enemy;
 	// 弾
-	Bullet m_bullet;
-
-	// 弾の生成
-	bool createShotNormal(Vec2 pos);
+	Bullet m_bullet[kMobMax];
 };
