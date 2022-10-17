@@ -12,6 +12,8 @@ public:
 
 	// 初期化
 	void init();
+	// 位置設定
+	void setPos();
 	// 終了処理
 	void end();
 	// サイズ取得
@@ -43,8 +45,16 @@ private:
 	// グラフィックのサイズ取得
 	Vec2 m_size;
 
+	float graphSize;
+
 	// 弾のハンドル
 	int m_handle;
+
+	// 敵
+	Enemy m_enemy;
+
+	// 弾の間隔
+	int m_waitBullet;
 
 	// 存在するか
 	bool m_isExist;

@@ -2,7 +2,7 @@
 
 #include "Vec2.h"
 
-#include "bullet.h"
+//#include "bullet.h"
 
 class Enemy 
 {
@@ -16,7 +16,7 @@ public:
 
 	void end();
 	// 取得
-	void get();
+	Vec2 getGraphSize() { return m_GraphSize; }
 	// 処理
 	void update();
 	// 描画
@@ -29,6 +29,9 @@ private:
 	Vec2 m_GraphSize;
 	// 敵のハンドル
 	int m_handle;
+
+	// 発射位置
+	Vec2 m_shotPos;
 
 	// 表示位置
 	Vec2 m_pos;

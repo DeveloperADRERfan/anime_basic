@@ -7,7 +7,7 @@ namespace
 {
 	// グラフィックファイル名
 	const char* const kPlayerGraphFilename = "GameGraphic/obake.png";
-	constexpr float kInterval = 
+	
 }
 
 SceneMain::SceneMain()
@@ -43,7 +43,6 @@ void SceneMain::init()
 	{
 		Bullet.init();
 	}
-	m_enemy.get();
 }
 
 // 終了処理
