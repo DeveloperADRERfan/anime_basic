@@ -2,7 +2,7 @@
 
 #include "Vec2.h"
 
-//#include "bullet.h"
+#include "bullet.h"
 
 class Enemy 
 {
@@ -21,8 +21,13 @@ public:
 	void update();
 	// 描画
 	void draw();
+	// 弾の生成
+	void createShot(Vec2 pos);
 
 	Vec2 getPos() { return m_pos; }
+
+private:
+	static constexpr int kMobMax = 10;
 
 private:
 	// グラフィックのサイズ取得
@@ -37,4 +42,7 @@ private:
 	Vec2 m_pos;
 	// 移動量
 	Vec2 m_vec;
+
+	// 弾
+	Bullet m_bullet[kMobMax];
 };

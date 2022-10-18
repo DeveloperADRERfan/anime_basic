@@ -2,7 +2,7 @@
 
 #include "Vec2.h"
 
-#include "enemy.h"
+
 
 class Bullet
 {
@@ -12,8 +12,6 @@ public:
 
 	// 初期化
 	void init();
-	// 位置設定
-	void setPos();
 	// 終了処理
 	void end();
 	// サイズ取得
@@ -49,9 +47,6 @@ private:
 
 	// 弾のハンドル
 	int m_handle;
-
-	// 敵
-	Enemy m_enemy;
 
 	// 弾の間隔
 	int m_waitBullet;

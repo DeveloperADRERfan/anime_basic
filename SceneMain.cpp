@@ -39,10 +39,6 @@ void SceneMain::init()
 	LoadGraph("GameGraphic/enemy.png");
 
 	m_enemy.init();
-	for (auto& Bullet : m_bullet)
-	{
-		Bullet.init();
-	}
 }
 
 // 終了処理
@@ -54,32 +50,14 @@ void SceneMain::end()
 	}
 
 	m_player.end();
-	m_enemy.end();
-	for (auto& Bullet : m_bullet)
-	{
-		Bullet.end();
-	}
-	
-}
-
-// 発射開始
-void SceneMain::start()
-{
-	
+	m_enemy.end();	
 }
 
 // 毎フレームの処理
 void SceneMain::update()
 {
-	createEnemyShot(m_enemy.getPos());
-
 	m_player.update();
 	m_enemy.update();
-	for (auto& Bullet : m_bullet)
-	{
-		Bullet.update();
-	}
-	//DrawFormatString(0, 0, GetColor(255, 255, 255), "%f", m_enemy.getPos().y , true);
 }
 
 // 毎フレームの描画
@@ -87,19 +65,40 @@ void SceneMain::draw()
 {
 	m_player.draw();
 	m_enemy.draw();
-	for (auto& Bullet : m_bullet)
-	{
-		Bullet.draw();
-	}
 }
 
-// 弾の生成
-void SceneMain::createEnemyShot(Vec2 pos)
+// 当たり判定
+bool SceneMain::Col_shot()
 {
-	for (auto& Bullet : m_bullet)
-	{
-		if (Bullet.isExist()) continue;
-		Bullet.start(pos);
-		return;
-	}
+	m_player.getPos();
+
+	m_bullet.getLeft();
+	m_bullet.getRight();
+	m_bullet.getTop();
+	m_bullet.getBottom();
+
+
+	m_player.getLeft();
+	m_player.getRight();
+	m_player.getTop();
+	m_player.getBottom();
+
+	if (m_player.getLeft() > m_bullet.getRight()) 
+	//{
+
+	//}
+	//if (m_player.getRight() > )
+	//{
+
+	//}
+	//if (m_player.getTop() > )
+	//{
+
+	//}
+	//if (m_player.getBottom() > )
+	//{
+
+	//}
+
+	return true;
 }

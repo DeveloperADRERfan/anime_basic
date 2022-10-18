@@ -6,8 +6,8 @@
 
 namespace
 {
-	constexpr float kSpeed = 7.0f;
-	constexpr int kBulletInterval = 10;
+	constexpr float kSpeed = 5.0f;
+	constexpr int kBulletInterval = 15;
 
 }
 
@@ -35,13 +35,6 @@ void Bullet::init()
 	m_isExist = false;
 
 	m_handle = LoadGraph("GameGraphic/bullet.png");
-}
-
-// à íuê›íË
-void Bullet::setPos()
-{
-	/*m_pos.x = m_enemy.getGraphSize();
-	m_pos.y = m_enemy.getGraphSize() / 2;*/
 }
 
 // èIóπèàóù
@@ -92,5 +85,3 @@ void Bullet::draw()
 	if (!m_isExist) return;
 	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
 }
-
-// íeÇÃê∂ê¨
