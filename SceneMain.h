@@ -19,8 +19,11 @@ public:
 	// –ˆƒtƒŒ[ƒ€‚Ì•`‰æ
 	void draw();
 
-	// “–‚½‚è”»’è
+	// player‚Æbullet‚Ì“–‚½‚è”»’è
 	virtual bool Col_shot();
+
+	// enemy‚Æplayer‚Ì“–‚½‚è”»’è
+	virtual bool Col_Enemy();
 
 private:
 

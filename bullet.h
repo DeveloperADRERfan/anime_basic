@@ -26,14 +26,14 @@ public:
 	// 存在するか
 	bool isExist() const { return m_isExist; }
 
-	float getPosX() const { return m_pos.x; }
-	float getPosY() const { return m_pos.y; }
+	// 情報の取得
+	Vec2 getPos() const { return m_pos; }
 
 	// 当たり判定実装用に四方向の座標を取得する　
 	float getLeft()	const { return m_pos.x; }
-	float getRight()	const { return m_pos.x + static_cast<float>(m_size.x); }
+	float getRight()	const { return m_pos.x + m_size.x; }
 	float getTop()	const { return m_pos.y; }
-	float getBottom() const { return m_pos.y + static_cast<float>(m_size.y); }
+	float getBottom() const { return m_pos.y + m_size.y; }
 
 private:
 	// 表示位置

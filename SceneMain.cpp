@@ -67,38 +67,27 @@ void SceneMain::draw()
 	m_enemy.draw();
 }
 
-// “–‚½‚è”»’è
+// player‚Æbullet‚Ì“–‚½‚è”»’è
 bool SceneMain::Col_shot()
 {
 	m_player.getPos();
+	m_bullet.getPos();
 
-	m_bullet.getLeft();
-	m_bullet.getRight();
-	m_bullet.getTop();
-	m_bullet.getBottom();
+	if (m_player.getLeft() > m_bullet.getRight()) return false;
+	if (m_player.getRight() < m_bullet.getLeft()) return false;
+	if (m_player.getTop() > m_bullet.getBottom()) return false;
+	if (m_player.getBottom() > m_player.getTop()) return false;
 
+	return true;
+}
 
-	m_player.getLeft();
-	m_player.getRight();
-	m_player.getTop();
-	m_player.getBottom();
-
-	if (m_player.getLeft() > m_bullet.getRight()) 
-	//{
-
-	//}
-	//if (m_player.getRight() > )
-	//{
-
-	//}
-	//if (m_player.getTop() > )
-	//{
-
-	//}
-	//if (m_player.getBottom() > )
-	//{
-
-	//}
+// enemy‚Æplayer‚Ì“–‚½‚è”»’è
+bool SceneMain::Col_Enemy()
+{
+	if (m_player.getLeft() > m_enemy.getRight()) return false;
+	if (m_player.getRight() < m_enemy.getLeft()) return false;
+	if (m_player.getTop() > m_enemy.getBottom()) return false;
+	if (m_player.getBottom() < m_enemy.getTop()) return false;
 
 	return true;
 }

@@ -36,9 +36,9 @@ public:
 
 	// 当たり判定実装用に四方向の座標を取得する　
 	float getLeft()	const { return m_pos.x; }
-	float getRight()	const { return m_pos.x + static_cast<float>(m_size.x); }
+	float getRight()	const { return m_pos.x + m_size.x; }
 	float getTop()	const { return m_pos.y; }
-	float getBottom() const { return m_pos.y + static_cast<float>(m_size.y); }
+	float getBottom() const { return m_pos.y + m_size.y; }
 
 private:
 	int m_handle[kGraphicDivNum];	// 分割した12個の

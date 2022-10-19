@@ -20,8 +20,8 @@ Enemy::~Enemy()
 
 void Enemy::init()
 {
-	m_pos.x = 0;
-	m_pos.y = 0;
+	m_pos.x = 100;
+	m_pos.y = 100;
 	m_vec.x = 0.0f;
 	m_vec.y = kSpeed;
 
@@ -58,9 +58,9 @@ void Enemy::update()
 
 
 
-	m_pos.y += m_vec.y;
+	//m_pos.y += m_vec.y;
 
-	if (m_pos.y + m_GraphSize.y > Game::kScreenHeight)
+	/*if (m_pos.y + m_GraphSize.y > Game::kScreenHeight)
 	{
 		m_vec.y *= -1;
 	}
@@ -68,7 +68,7 @@ void Enemy::update()
 	{
 		m_vec.y *= -1;
 		m_pos.y = 0;
-	}
+	}*/
 
 }
 
