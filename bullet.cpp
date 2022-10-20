@@ -7,8 +7,7 @@
 namespace
 {
 	constexpr float kSpeed = 5.0f;
-	constexpr int kBulletInterval = 15;
-
+	constexpr int kBulletInterval = 10;
 }
 
 Bullet::Bullet()

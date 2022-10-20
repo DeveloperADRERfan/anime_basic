@@ -39,7 +39,7 @@ public:
 	float getBottom() const { return m_pos.y + m_GraphSize.y; }
 
 private:
-	static constexpr int kMobMax = 10;
+	static constexpr int kMobMax = 20;
 
 private:
 	// グラフィックのサイズ取得

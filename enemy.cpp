@@ -61,9 +61,8 @@ void Enemy::update()
 		if (m_isShotHit)		break;
 	}
 
-	if (m_isShotHit) {
-
-		DrawFormatString(0, 0, GetColor(255, 255, 255), "E", true);
+	if (m_isShotHit) 
+	{
 		m_isShotHit = false;
 		DxLib_End();
 
@@ -72,6 +71,8 @@ void Enemy::update()
 	m_shotPos.y = m_pos.y + m_GraphSize.y / 2;
 	m_shotPos.x = m_pos.x + m_GraphSize.x;
 
+
+	// ’e”­ŽË
 	m_pos += m_vec;
 
 	if (m_pos.y + m_GraphSize.y > Game::kScreenHeight)

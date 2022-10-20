@@ -54,7 +54,7 @@ void SceneMain::end()
 }
 
 // 毎フレームの処理
-void SceneMain::update()
+SceneBase* SceneMain::update()
 {
 	m_player.update();
 	m_enemy.update();
@@ -70,7 +70,7 @@ void SceneMain::update()
 		DxLib_End();				// ＤＸライブラリ使用の終了処理
 	}
 
-	
+	return this;
 }
 
 // 毎フレームの描画

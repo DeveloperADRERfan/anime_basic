@@ -3,8 +3,9 @@
 #include "player.h"
 #include "enemy.h"
 #include "bullet.h"
+#include "SceneBase.h"
 
-class SceneMain
+class SceneMain : public SceneBase
 {
 public:
 	SceneMain();
@@ -15,7 +16,7 @@ public:
 	// 終了処理
 	void end();
 	// 毎フレームの処理
-	void update();
+	virtual SceneBase* update();
 	// 毎フレームの描画
 	void draw();
 
