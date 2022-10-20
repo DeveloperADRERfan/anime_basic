@@ -33,6 +33,8 @@ void Player::init()
 	m_vec.x = 0.0f;
 	m_vec.y = 0.0f;
 
+	GetGraphSizeF(m_handle[1], &m_size.x, &m_size.y);
+
 	m_animeNo = 0;
 	m_animeFrame = 0;
 	m_dirNo = 0;

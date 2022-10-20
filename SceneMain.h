@@ -20,10 +20,10 @@ public:
 	void draw();
 
 	// player‚Æbullet‚Ì“–‚½‚è”»’è
-	virtual bool Col_shot();
+	bool Col_Shot();
 
 	// enemy‚Æplayer‚Ì“–‚½‚è”»’è
-	virtual bool Col_Enemy();
+	bool Col_Enemy();
 
 private:
 

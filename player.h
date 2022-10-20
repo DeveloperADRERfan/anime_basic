@@ -31,6 +31,9 @@ public:
 	// •`‰æ
 	void draw();
 
+	//€–Sİ’è
+	void setDead(bool isDead) { m_isDead = isDead; }
+
 	// î•ñ‚Ìæ“¾
 	Vec2 getPos() const { return m_pos; }
 
@@ -42,6 +45,9 @@ public:
 
 private:
 	int m_handle[kGraphicDivNum];	// •ªŠ„‚µ‚½12ŒÂ‚Ì
+
+	// €–Sİ’è
+	bool m_isDead;
 
 	// •\¦ˆÊ’u
 	Vec2 m_pos;
