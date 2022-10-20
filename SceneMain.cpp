@@ -59,8 +59,10 @@ void SceneMain::update()
 	m_player.update();
 	m_enemy.update();
 
+	m_enemy.setPlayer(m_player);
+
 	Col_Enemy();
-	Col_Shot();
+	//Col_Shot();
 
 	if (Col_Enemy() == true)
 	{
@@ -68,10 +70,7 @@ void SceneMain::update()
 		DxLib_End();				// ＤＸライブラリ使用の終了処理
 	}
 
-	if (Col_Shot() == true)
-	{
-		DxLib_End();				// ＤＸライブラリ使用の終了処理
-	}
+	
 }
 
 // 毎フレームの描画
@@ -82,15 +81,15 @@ void SceneMain::draw()
 }
 
 // playerとbulletの当たり判定
-bool SceneMain::Col_Shot()
-{
-	if (m_player.getLeft() > m_bullet.getRight()) return false;
-	if (m_player.getRight() < m_bullet.getLeft()) return false;
-	if (m_player.getTop() > m_bullet.getBottom()) return false;
-	if (m_player.getBottom() > m_player.getTop()) return false;
-
-	return true;
-}
+//bool SceneMain::Col_Shot()
+//{
+//	if (m_player.getLeft() > m_bullet.getRight()) return false;
+//	if (m_player.getRight() < m_bullet.getLeft()) return false;
+//	if (m_player.getTop() > m_bullet.getBottom()) return false;
+//	if (m_player.getBottom() > m_player.getTop()) return false;
+//
+//	return true;
+//}
 
 // enemyとplayerの当たり判定
 bool SceneMain::Col_Enemy()

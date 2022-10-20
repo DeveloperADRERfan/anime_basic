@@ -19,8 +19,6 @@ public:
 	// –ˆƒtƒŒ[ƒ€‚Ì•`‰æ
 	void draw();
 
-	// player‚Æbullet‚Ì“–‚½‚è”»’è
-	bool Col_Shot();
 
 	// enemy‚Æplayer‚Ì“–‚½‚è”»’è
 	bool Col_Enemy();

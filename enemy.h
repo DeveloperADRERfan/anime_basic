@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Vec2.h"
-
+#include "player.h"
 #include "bullet.h"
 
 class Enemy 
@@ -27,8 +27,10 @@ public:
 	// 情報の取得
 	Vec2 getPos() { return m_pos; }
 
+	void setPlayer(Player player) { m_player = player; }
+
 	// playerとbulletの当たり判定
-	bool Col_Shot();
+	bool Col_Shot(int i);
 
 	// 当たり判定実装用に四方向の座標を取得する　
 	float getLeft()	const { return m_pos.x; }
@@ -45,6 +47,8 @@ private:
 	// 敵のハンドル
 	int m_handle;
 
+	Player m_player;
+
 	// 発射位置
 	Vec2 m_shotPos;
 
@@ -55,4 +59,7 @@ private:
 
 	// 弾
 	Bullet m_bullet[kMobMax];
+
+	bool m_isShotHit;
+
 };
